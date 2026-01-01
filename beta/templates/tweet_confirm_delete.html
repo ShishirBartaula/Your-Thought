@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+child HTML
+{% endblock title %}
+
+
+{% block content %}
+<h2 class="text-center text-warning mt-3">Want to delete your thought??</h2>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <button class="btn btn-danger">Delete</button>
+       <a href="{%url 'tweet_list'%}" class="btn btn-sucess">Cancle</a> 
+    </form>
+
+{% endblock content %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+child HTML
+{% endblock title %}
+
+
+{% block content %}
+<h2 class="text-center text-warning mt-3">Create your Tweet</h2>
+
+<a class="btn btn-primary mb-4" href="{%url 'tweet_create'%}">
+    create a Tweet </a?
+
+<div class="container  row gap-3">
+       
+    {% for tweet in tweets %}
+    {% comment %} bootstrap cards {% endcomment %}
+    <div class="card" style="width: 18rem;">
+  <img src="{{tweet.photo.url}}" class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title">{{tweet.user.username}}</h5>
+    <p class="card-text">{{tweet.text}}</p>
+
+    {% if tweet.user == user %}
+
+    <a href="{%url 'tweet_edit' tweet.id%}" class="btn btn-primary">Edit</a>
+
+    <a href="{%url 'tweet_delete' tweet.id%}" class="btn btn-primary">Delete</a>
+
+    {% endif %}
+    
+</div>
+</div>
+
+    {% endfor %}
+</div>
+
+
+{% endblock content %}
