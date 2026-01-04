@@ -38,8 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'beta',
 ]
+REST_FRAMEWORK = {
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 2,
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'middleware.main.ExampleMiddleware',
 ]
 
 ROOT_URLCONF = 'projectAlpha.urls'
@@ -119,7 +125,7 @@ USE_TZ = True
 
 
 STATIC_URL='static/'
-STATCFILES_DIRS=[os.path.join(BASE_DIR,'static')]
+STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
 
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')

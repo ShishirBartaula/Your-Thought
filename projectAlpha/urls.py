@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
      path('beta/',include('beta.urls')),
      path('accounts/',include('django.contrib.auth.urls')),
+     path('api/',include('beta.api_urls')),
 
      
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
